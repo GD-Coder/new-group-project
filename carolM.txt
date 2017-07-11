@@ -1,0 +1,40 @@
+@import "~bootstrap/less/bootstrap";
+
+.ft-register {
+  .container();
+  .center-block();
+}
+
+ft-register {
+  .ft-register;
+}
+.darkcontainer {
+  display: block;
+  width: 45%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: inherit;
+  color: #ffffff;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #000000;
+}
+.slabel {
+  color: white;
+  font-size: 20px;
+  text-shadow: 2px 2px 10px black;
+  font-weight: bolder;
+}
+
+.sbox {
+  background-color: rgba(0, 0, 0, 0.60) !important;
+  color: #b9b1bf !important;
+  text-shadow: 2px 2px 10px black;
+  text-align: center;
+  font-size: 20px !important;
+
+}
+.btn-toolbar {
+    margin-left: 13% !important;
+}
