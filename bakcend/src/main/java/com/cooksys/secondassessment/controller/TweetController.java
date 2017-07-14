@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,6 +55,7 @@ public class TweetController {
 	
 	@PostMapping("tweets")
 	public TweetSimpleDto createSimpTweet(@RequestBody TweetCreateSimpleDto tweet, HttpServletResponse response) {
+		response.setStatus(HttpServletResponse.SC_ACCEPTED);
 		return tMapper.tweetSimpleDto(tService.createSimpleTweet(tweet));
 	}
 	
@@ -61,18 +63,18 @@ public class TweetController {
 	public Tweet getTweetById(@PathVariable Integer id, HttpServletResponse response) {
 		return tService.getById(id);
 	}
-	
-	@DeleteMapping("tweets/{id}")
+	@Transactional
+	@PostMapping("tweets/{id}")
 	public Tweet deleteTweetById(@PathVariable Integer id, HttpServletResponse response) {
 		return tService.deleteById(id);
 	}
 	
 	@PostMapping("tweets/{id}/like")
 	public void likeTweetById(@RequestBody TweetUserCredOnlyDto creds ,@PathVariable Integer id, HttpServletResponse response) {
-		response.setStatus(HttpServletResponse.SC_ACCEPTED);
+		response.setStatus(HttpServletResponse.SC_CREATED);
 		tService.likeTweetById(creds, id);
 	}
-	
+	@Transactional
 	@PostMapping("tweets/{id}/reply")
 	public TweetWithIdDto replyToTweetById(@RequestBody TweetCreateSimpleDto simpleDto, @PathVariable Integer id, HttpServletResponse response) {
 		return tMapper.tWithIdDto(tService.replyToTweetById(simpleDto, id));

@@ -105,14 +105,14 @@ public class TweetService {
 	}
 
 	public Tweet deleteById(Integer id) {
-		if (tRepo.exists(id)) {
-			Tweet tweet = getById(id);
-			tweet.setIsDeleted(true);
-			return tweet;
-		}
-		
-		throw new EntityNotFoundException();
-	}
+        if (tRepo.exists(id)) {
+            Tweet tweet = getById(id);
+            tweet.setIsDeleted(true);
+            return tRepo.save(tweet);
+        }
+        
+        throw new EntityNotFoundException();
+    }
 
 	public Set<HashTag> getTagsFromTweet(Integer id) {
 		Tweet tweet = tRepo.findOne(id); 
