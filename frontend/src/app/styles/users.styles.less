@@ -1,0 +1,99 @@
+@import "~bootstrap/less/bootstrap";
+
+.ft-users {
+  .container();
+  .center-block();
+}
+
+
+table { min-width: 600px; }
+
+/*The next 3 sections make the magic happen*/
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+tbody {
+    display: block;
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*Use the following to make sure cols align correctly*/
+table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th:nth-child(1), td:nth-child(1) {
+width: 85px;
+}
+th:nth-child(2), td:nth-child(2) {
+width: 85px;
+}
+th:nth-child(3), td:nth-child(3) {
+width: 150px;
+}
+th:nth-child(4), td:nth-child(4) {
+width: 85px;
+}
+td:nth-child(6), {
+width: 220px;
+}
+th:nth-child(6) {
+width: 236px;
+}
+thead:first-child > tr:first-child > th {
+    border: 1px solid #7d95d2 !important;
+}
+.table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+      border: 1px solid #7d95d2 !important;
+}
+.usertable {
+    background-color: white;
+
+}
+.follow {
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.unfollow {
+  background-color: cornflowerblue;
+  color: white;
+}
+.follow:hover {
+  background-color: cornflowerblue;
+  background-color: #0047b3 !important;
+  border-color: black !important;
+  color: white !important;
+}
+
+.unfollow:hover {
+  background-color: cornflowerblue;
+  background-color: #0047b3 !important;
+  border-color: black !important;
+  color: white !important;
+}
+.users {
+  font-size: 16px;
+  color: black;
+  overflow: inherit;
+  height: 500px;
+}
+
+.followcheck {
+  text-align: center;
+}
+
+ft-users {
+  .ft-users;
+}

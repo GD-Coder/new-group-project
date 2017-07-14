@@ -1,0 +1,32 @@
+<div class ="container">
+<div ng-model="game.message" ng-show="game.messageShow" class="message">-{{game.message}}</div>
+<div class="splashed">
+<div class="hello">Hello {{game.settings.user.firstname}}</div>
+<h1><span class="total">{{game.settings.defaultGameSettings.total | number:2}}</span> clicks <small>so far</small></h1>
+<button ng-click="game.logout()" class="logout-btn btn btn-danger">LOGOUT</button>
+<button data-toggle="tooltip" data-placement="top" title="The game is in it's initial state."ng-disabled="game.settings.defaultGameSettings.total <= 0" ng-click="game.resetState()" class="reset-btn btn btn-warning">RESET</button>
+</div>
+<button
+    data-toggle="tooltip"
+    data-placement="top"
+    title="This feature costs {{game.settings.defaultPointSettings.modifier.cost}}."
+    class="ft-btn btn-primary btn col-md-4"
+    ng-disabled="game.settings.defaultGameSettings.total < game.settings.defaultPointSettings.modifier.cost"
+    ng-click="game.clickMulti()">
+  <h2>+{{game.settings.defaultPointSettings.modifier.amount | number:1}}</h2>
+</button>
+<button
+    class="ft-btn btn-primary btn col-md-4"
+    ng-click="game.clickAdd()">
+  <h2>+{{game.settings.defaultPointSettings.increment | number:1}}</h2>
+</button>
+<button
+    data-placement="top"
+    title="This feature costs {{game.settings.defaultPointSettings.autoclicker.cost}}."
+    class="ft-btn btn-primary btn col-md-4"
+    ng-disabled="game.settings.defaultGameSettings.total < game.settings.defaultPointSettings.autoclicker.cost"
+    ng-click="game.clickAuto()">
+  <h2>+{{game.settings.defaultPointSettings.baseincrement | number:1}} auto</h2>
+</button>
+
+</div>
